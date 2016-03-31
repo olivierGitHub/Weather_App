@@ -26,8 +26,8 @@ router.get('/city/:city', function(req, res, next) {
   apiUtils.apiCall(req.params.city)
     .then((jsonParams) => {
       renderUtils.renderReactComponent(req,res,
-        '../views/app/components/homepage',
-        'homepage',jsonParams);
+        '../views/app/components/homepage', 'homepage',
+        apiUtils.constructJsonForReact(jsonParams));
     })
     .catch((errs) => {
       res.json({error:"error with the api"});
@@ -38,8 +38,8 @@ router.post('/city/:city', function(req, res, next) {
   apiUtils.apiCall(req.params.city)
     .then((jsonParams) => {
       renderUtils.renderReactComponent(req,res,
-        '../views/app/components/homepage',
-        'homepage',jsonParams);
+        '../views/app/components/homepage', 'homepage',
+        apiUtils.constructJsonForReact(jsonParams));
     })
     .catch((errs) => {
       res.json({error:"error with the api"});

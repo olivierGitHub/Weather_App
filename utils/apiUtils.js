@@ -51,6 +51,10 @@ var WeatherApi = {
     });
   },
 
+  findCityName : function (jsonData) {
+    return jsonData.data.request[0].query;
+  },
+
   findCurrentWeather : function (jsonData){
     return jsonData.data.current_condition.map(function(currentWeather){
       return ({
@@ -94,10 +98,13 @@ var WeatherApi = {
 
   constructJsonForReact: function (jsonData) {
     return ({
-      "currentWeather": this.findCurrentWeather(jsonData),
-      "weeklyWeather": this.findWeeklyWeather(jsonData),
-      "weeklyEvolution": this.findWeeklyEvolution(jsonData),
-      "weeklyParams": this.findWeeklyParams(jsonData)
+      "data": {
+        "cityName" : this.findCityName(jsonData),
+        "currentWeather": this.findCurrentWeather(jsonData),
+        "weeklyWeather": this.findWeeklyWeather(jsonData),
+        "weeklyEvolution": this.findWeeklyEvolution(jsonData),
+        "weeklyParams": this.findWeeklyParams(jsonData)
+      }
     })
   }
 

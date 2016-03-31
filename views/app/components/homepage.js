@@ -11,7 +11,6 @@ var ModalLogin = require('./modalLogin.js');
 var CurrentWeather = require('./weather/current/currentWeather.js');
 var DaySummaryGroup = require('./weather/weeklySummary/daysummaryGroup.js');
 
-
 var CityActions = require('../actions/cityActions.js');
 var CityStore = require('../stores/cityStore.js');
 
@@ -95,7 +94,6 @@ var Homepage = React.createClass({
   render: function () {
 
     var innerButton = <input type="submit" name="submit" value="What's the Meteo ?" className="btn btn-primary" />;    
-    
     var weatherData = this.props;
     return (
       <div>
@@ -131,15 +129,15 @@ var Homepage = React.createClass({
                 </form>
               </div>
         </div>
-        <h3 className="cityTitle">{weatherData.data.request[0].query}</h3>
+        <h3 className="cityTitle">{weatherData.data.cityName}</h3>
         <div className="container homepageTabs">
           <Tabs activeKey={this.state.key} onSelect={this.handleSelect}>
-              <Tab eventKey={1} title="Current Weather"><CurrentWeather currentCondition={weatherData.data.current_condition[0]} /></Tab>
-              <Tab eventKey={2} title="Weekly Weather"><DaySummaryGroup days={weatherData.data.weather} /></Tab>
+              <Tab eventKey={1} title="Current Weather"><CurrentWeather currentCondition={weatherData.data.currentWeather[0]} /></Tab>
+              <Tab eventKey={2} title="Weekly Weather"><DaySummaryGroup days={weatherData.data.weeklyWeather} /></Tab>
               {this.state.cookie !=''
                 ?
-                  <Tab eventKey={3} title="Weekly Evolution">Will tell the Map WeeklyEvolution </Tab>
-              : null}
+                  <Tab eventKey={3} title="Weekly Evolution">Will tell the WeeklyEvolution</Tab>
+                : null}
               {this.state.cookie !=''
                 ?
                   <Tab eventKey={4} title="Weekly Parameters">Will tell the WeeklyParameters</Tab>

@@ -5,7 +5,7 @@ var CurrentWeather = React.createClass({
     var currentCondition = this.props.currentCondition;
     return (
       <div className="weatherContent">
-        <p>Current: <strong>{currentCondition.weatherDesc[0].value}</strong></p>
+        <p>Current: <strong>{currentCondition.current}</strong></p>
         <p>{
           "Wind:" + currentCondition.winddir16Point + 
           " at " + currentCondition.windspeedMiles + 
