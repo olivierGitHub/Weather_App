@@ -10,6 +10,7 @@ var ModalLogin = require('./modalLogin.js');
 
 var CurrentWeather = require('./weather/current/currentWeather.js');
 var DaySummaryGroup = require('./weather/weeklySummary/daysummaryGroup.js');
+var WeeklyEvolution = require('./weather/weeklyEvolution/weeklyEvolution.js');
 
 var CityActions = require('../actions/cityActions.js');
 var CityStore = require('../stores/cityStore.js');
@@ -136,7 +137,7 @@ var Homepage = React.createClass({
               <Tab eventKey={2} title="Weekly Weather"><DaySummaryGroup days={weatherData.data.weeklyWeather} /></Tab>
               {this.state.cookie !=''
                 ?
-                  <Tab eventKey={3} title="Weekly Evolution">Will tell the WeeklyEvolution</Tab>
+                  <Tab eventKey={3} title="Weekly Evolution"><WeeklyEvolution evolution={weatherData.data.weeklyEvolution} /></Tab>
                 : null}
               {this.state.cookie !=''
                 ?
