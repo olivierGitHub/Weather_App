@@ -9,7 +9,7 @@ var ModalSignUp = require('./modalSignUp.js');
 var ModalLogin = require('./modalLogin.js');
 
 var CurrentWeather = require('./weather/current/currentWeather.js');
-var DaySummaryGroup = require('./weather/weeklySummary/daysummaryGroup.js');
+var DaySummaryGroup = require('./weather/weeklySummary/daySummaryGroup.js');
 var WeeklyEvolution = require('./weather/weeklyEvolution/weeklyEvolution.js');
 
 var CityActions = require('../actions/cityActions.js');
