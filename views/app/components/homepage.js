@@ -7,6 +7,7 @@ var Tab = require('react-bootstrap').Tab;
 var Tabs = require('react-bootstrap').Tabs;
 var ModalSignUp = require('./modalSignUp.js');
 var ModalLogin = require('./modalLogin.js');
+var environment = require('../../../utils/env/environment.js');
 
 var CurrentWeather = require('./weather/current/currentWeather.js');
 var DaySummaryGroup = require('./weather/weeklySummary/daySummaryGroup.js');
@@ -82,7 +83,7 @@ var Homepage = React.createClass({
 
   logout: function () {
     deleteAllCookies();
-    location.href = "http://localhost:3000";
+    location.href = environment.base_uri;
   },
 
   /* for AJAX call client side DEPRECATED */
