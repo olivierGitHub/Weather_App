@@ -6,7 +6,7 @@ var Env = {
 
 
   // production
-    /*'base_uri': 'http://thepartnerz.com',
+    /*'base_uri': 'http://104.131.171.84',
     'port': '80'*/
 
 }

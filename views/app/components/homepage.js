@@ -12,6 +12,7 @@ var environment = require('../../../utils/env/environment.js');
 var CurrentWeather = require('./weather/current/currentWeather.js');
 var DaySummaryGroup = require('./weather/weeklySummary/daySummaryGroup.js');
 var WeeklyEvolution = require('./weather/weeklyEvolution/weeklyEvolution.js');
+var WeeklyParams = require('./weather/weeklyParameters/weeklyParams.js');
 
 var CityActions = require('../actions/cityActions.js');
 var CityStore = require('../stores/cityStore.js');
@@ -142,7 +143,7 @@ var Homepage = React.createClass({
                 : null}
               {this.state.cookie !=''
                 ?
-                  <Tab eventKey={4} title="Weekly Parameters">Will tell the WeeklyParameters</Tab>
+                  <Tab eventKey={4} title="Weekly Parameters"><WeeklyParams params={weatherData.data.weeklyParams} /></Tab>
                 : null}
           </Tabs>
         </div>
@@ -150,7 +151,6 @@ var Homepage = React.createClass({
     )
   }
 });
-
 
 module.exports = Homepage;
 

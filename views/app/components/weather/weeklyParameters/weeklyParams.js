@@ -1,19 +1,20 @@
 var React = require('react');
 var Highcharts = require('highcharts');
 
-var WeeklyEvolution = React.createClass({
+
+var WeeklyParams = React.createClass({
   componentDidMount : function () {
 
-    var arrayIntMax = this.props.evolution.maxtempC.map(s => Number(s));
-    var arrayIntMin = this.props.evolution.mintempC.map(Number);
+    var arrayIntHumidity = this.props.params.humidity.map(s => Number(s));
+    var arrayIntVisibility = this.props.params.visibility.map(Number);
 
     var chart = new Highcharts.Chart({
         chart: {
-            renderTo: 'highchartsContainer',
-            type: 'areaspline'
+            renderTo: 'paramsContainer',
+            type: 'column'
         },
         title: {
-            text: 'Temperature'
+            text: 'Weather parameters'
         },
         xAxis: {
             title: {
@@ -23,25 +24,25 @@ var WeeklyEvolution = React.createClass({
         },
         yAxis: {
             title: {
-                text: 'Temperature'
+                text: 'Params'
             },
             tickInterval: 1
         },
         series: [{
-            name: 'Max Temperature',
-            data: arrayIntMax
+            name: 'Humidity',
+            data: arrayIntHumidity
         }, {
-            name: 'Min Temperature',
-            data: arrayIntMin
+            name: 'Visibility',
+            data: arrayIntVisibility
         }]
     });
   },
   render : function () {
     return (
-      <div id="highchartsContainer" className="highchartsDiv">
+      <div id="paramsContainer" className="highchartsDiv">
       </div>
       )
   }
 });
 
-module.exports = WeeklyEvolution;
+module.exports = WeeklyParams;
